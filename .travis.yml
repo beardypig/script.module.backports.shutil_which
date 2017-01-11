@@ -25,6 +25,7 @@ deploy:
   file: $TRAVIS_BUILD_DIR/build/script.module.backports.shutil_which-$TRAVIS_TAG.zip
   on:
     repo: beardypig/script.module.backports.shutil_which
+    tags: true
 after_deploy:
 - gem install travis
 - curl -LO curl -LO https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
