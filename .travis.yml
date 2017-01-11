@@ -4,9 +4,12 @@ python:
 - '3.5'
 script:
 - ./waf configure clean build dist
+- pushd build
+- md5sum "script.module.backports.shutil_which-3.5.1.zip" > "script.module.backports.shutil_which-3.5.1.zip.md5"
+- popd
 before_deploy:
 - mkdir -p dist/
-- cp build/*.zip addon.xml icon.png dist/
+- cp build/*.zip build/*.zip.md5 addon.xml icon.png dist/
 deploy:
 - provider: s3
   access_key_id: AKIAJA536STKTMHCZFZQ
